@@ -3,7 +3,14 @@ import os
 import traceback
 
 bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+token = NjY1MDExNTg3MTk0NjgzNDEy.XhfdGw.SVHjZZsZA4c5oq1brqQjsaFPI0s
+
+
+# 起動時に動作する処理
+@client.event
+async def on_ready():
+    # 起動したらターミナルにログイン通知が表示される
+    print('ログインしました')
 
 
 @bot.event
@@ -12,10 +19,18 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-
+    
+    if message.author.bot:
+        return
+    
+        # 「/neko」と発言したら「にゃーん」が返る処理
+    if message.content == '/neko':
+        await message.channel.send('にゃーん')
+        
+    
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+async def '/neko'(ctx):
+    await ctx.send('にゃーん')
 
 
 bot.run(token)
