@@ -22,7 +22,7 @@ from time import sleep
  
 target_time = 10
  
-async def cu(secs):
+async def cu (secs)(ctx):
     def up_timer(secs):
     for i in range(0,secs):
         print(i)
@@ -33,7 +33,7 @@ async def cu(secs):
 up_timer(target_time)
 
 
-async def cd(secs):
+async def cd (secs)(ctx):
     def down_timer(secs):
     # for i in range(0,secs):から変更
     for i in range(secs, -1, -1):
