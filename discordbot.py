@@ -22,7 +22,8 @@ from time import sleep
  
 target_time = 10
  
-def up_timer(secs):
+async def cu(secs):
+    def up_timer(secs):
     for i in range(0,secs):
         print(i)
         sleep(1)
@@ -32,12 +33,14 @@ def up_timer(secs):
 up_timer(target_time)
 
 
-def down_timer(secs):
+async def cd(secs):
+    def down_timer(secs):
     # for i in range(0,secs):から変更
     for i in range(secs, -1, -1):
         print(i)
         sleep(1)
     print("時間です！")
+
     
     
 bot.run(token)
